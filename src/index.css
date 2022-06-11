@@ -1,0 +1,59 @@
+/* This is the font used for titles */
+@font-face {
+  src: url(./Theme/Themes/Fonts/UniNeueLight.ttf);
+  font-family: UniNeueLight;
+}
+
+@font-face {
+  src: url(./Theme/Themes/Fonts/UniNeueBold.ttf);
+  font-family: UniNeueBold;
+}
+
+@font-face {
+  src: url(./Theme/Themes/Fonts/UniNeueHeavy.ttf);
+  font-family: UniNeueHeavy;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+
+  /* Prevent font size from blowing up on iOS when the device rotates */
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  /* Prevent iOS from rendering a large context menu */
+  -webkit-touch-callout: none !important;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+a,
+button,
+input {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

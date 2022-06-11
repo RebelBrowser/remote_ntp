@@ -1,0 +1,5 @@
+body {
+  --footer-height: 12px;
+
+  padding-bottom: calc(var(--footer-height) * 4);
+}

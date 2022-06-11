@@ -1,0 +1,131 @@
+/**
+ * There are several CSS variable in this file with the suffix -filter. These
+ * are meant to be applied to SVG images so that we do not have to keep separate
+ * copies of each image in the code base, one for each theme. The filters can be
+ * applied as CSS filter rules on top of black SVG images. To generate a filter
+ * rule from a hex color, use: https://codepen.io/sosuke/pen/Pjoqqp. This site
+ * uses heuristics to generate a filter, so re-generate the filter until it
+ * displays "This is a perfect result".
+ */
+body {
+  --color-black: rgb(0, 0, 0);
+  --color-black-filter: invert(0%) sepia(0%) saturate(7465%) hue-rotate(338deg)
+    brightness(91%) contrast(109%);
+
+  --color-white: rgb(255, 255, 255);
+  --color-white-filter: invert(100%) sepia(0%) saturate(7500%)
+    hue-rotate(277deg) brightness(111%) contrast(104%);
+
+  --color-grey0: rgb(248, 249, 250);
+  --color-grey1: rgb(241, 243, 244);
+  --color-grey2: rgb(232, 234, 237);
+  --color-grey3: rgb(218, 220, 224);
+  --color-grey4: rgb(189, 193, 198);
+  --color-grey5: rgb(154, 160, 166);
+  --color-grey6: rgb(128, 134, 139);
+  --color-grey7: rgb(95, 99, 104);
+  --color-grey8: rgb(50, 54, 57);
+  --color-grey9: rgb(32, 33, 36);
+  --color-grey10: #202e39;
+
+  --color-blue0: rgb(232, 240, 254);
+  --color-blue1: rgb(210, 227, 252);
+  --color-blue2: rgb(174, 203, 250);
+  --color-blue3: rgb(138, 180, 248);
+  --color-blue4: rgb(102, 157, 246);
+  --color-blue5: rgb(66, 133, 244);
+  --color-blue6: rgb(26, 115, 232);
+  --color-blue7: rgb(25, 103, 210);
+  --color-blue8: rgb(24, 90, 188);
+  --color-blue9: rgb(23, 78, 166);
+
+  --color-red0: rgb(252, 142, 230);
+  --color-red1: rgb(250, 210, 207);
+  --color-red2: rgb(246, 174, 169);
+  --color-red3: rgb(242, 139, 130);
+  --color-red4: rgb(238, 103, 92);
+  --color-red5: rgb(234, 67, 53);
+  --color-red6: rgb(217, 48, 37);
+  --color-red7: rgb(197, 34, 31);
+  --color-red8: rgb(179, 20, 18);
+  --color-red9: rgb(165, 14, 14);
+
+  --color-teal: #0aa5ab;
+  --color-darkblue: #465967;
+  --color-teal-filter: invert(40%) sepia(50%) saturate(5188%) hue-rotate(159deg)
+    brightness(106%) contrast(92%);
+  --color-darkblue-filter: invert(30%) sepia(31%) saturate(386%)
+    hue-rotate(162deg) brightness(96%) contrast(84%);
+}
+
+.theme-light {
+  --themed-primary-foreground-color: var(--color-grey8);
+  --themed-primary-background-color: var(--color-white);
+  --themed-primary-filter: var(--color-black-filter);
+
+  --themed-secondary-foreground-color: var(--color-grey8);
+  --themed-secondary-background-color: var(--color-white);
+  --themed-secondary-filter: invert(17%) sepia(13%) saturate(324%)
+    hue-rotate(163deg) brightness(100%) contrast(89%);
+
+  --themed-ternary-foreground-color: var(--color-grey7);
+  --themed-ternary-background-color: var(--color-grey2);
+
+  --themed-blurred-foreground-color: var(--color-grey6);
+  --themed-blurred-background-color: var(--color-grey1);
+
+  --themed-hover-foreground-color: rgb(41, 123, 231);
+  --themed-hover-background-color: rgba(32, 33, 36, 0.06);
+
+  --themed-highlight-color: var(--color-blue6);
+  --themed-highlight-filter: invert(34%) sepia(82%) saturate(2116%)
+    hue-rotate(202deg) brightness(92%) contrast(97%);
+
+  --themed-pressed-color: var(--color-blue7);
+  --themed-contour-color: var(--color-teal);
+  --themed-contour-secondary-color: var(--color-grey2);
+
+  --themed-shadow: 0px 0px 5px 1px rgba(32, 33, 36, 0.28);
+}
+
+.theme-dark {
+  --themed-primary-foreground-color: var(--color-white);
+  --themed-primary-background-color: var(--color-grey10);
+  --themed-primary-filter: var(--color-white-filter);
+
+  --themed-secondary-foreground-color: var(--color-white);
+  --themed-secondary-background-color: var(--color-grey8);
+  --themed-secondary-filter: var(--color-white-filter);
+
+  --themed-ternary-foreground-color: var(--color-grey4);
+  --themed-ternary-background-color: var(--color-grey9);
+
+  --themed-blurred-foreground-color: var(--color-grey6);
+  --themed-blurred-background-color: var(--color-grey9);
+
+  --themed-hover-foreground-color: rgb(115, 160, 223);
+  --themed-hover-background-color: rgba(200, 200, 200, 0.1);
+
+  --themed-highlight-color: var(--color-blue3);
+  --themed-highlight-filter: invert(67%) sepia(7%) saturate(2709%)
+    hue-rotate(182deg) brightness(103%) contrast(95%);
+
+  --themed-pressed-color: var(--color-blue4);
+  --themed-contour-color: var(--color-teal);
+
+  --themed-shadow: 0px 0px 5px 1px rgba(32, 33, 36, 0.28);
+}
+
+body {
+  color: var(--color-darkblue);
+  background-color: var(--themed-primary-background-color);
+}
+
+a {
+  color: var(--themed-highlight-color);
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
