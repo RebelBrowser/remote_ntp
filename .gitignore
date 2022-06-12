@@ -6,6 +6,10 @@ node_modules/
 # production
 build/
 
+# generated files
+remote_ntp_resources.grdp
+remote_ntp_offline_resources.h
+
 # misc
 .DS_Store
 .env.local
