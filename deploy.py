@@ -54,10 +54,11 @@ def run_command(command_list):
     the command fails.
     """
     logging.info('Calling: %s', command_list)
+    shell = os.name == 'nt'
 
     try:
         result = subprocess.run(
-            command_list, universal_newlines=True, check=True,
+            command_list, universal_newlines=True, check=True, shell=shell,
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as ex:
         print(ex.output)
