@@ -96,7 +96,8 @@ def generate_rebel_sources():
     sources = []
 
     for (root, _, files) in os.walk(path):
-        root = root.replace(path + '/', '', 1).replace(path, '', 1)
+        root = root.replace(path + os.path.sep, '', 1).replace(path, '', 1)
+        root = root.replace(os.path.sep, '/')
 
         for file in files:
             mime_type = mimetypes.guess_type(file)[0]
@@ -109,7 +110,7 @@ def generate_rebel_sources():
                 else:
                     continue
 
-            file_path = os.path.join(root, file)
+            file_path = f'{root}/{file}' if root else file
             identifier = file_path
 
             for c in ['.', '-', '/']:
