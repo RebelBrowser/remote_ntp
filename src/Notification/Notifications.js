@@ -48,7 +48,7 @@ const OUT_OF_DATE_NOTIFICATION = {
     return header + ' Upgrade now for the latest security fixes and features.';
   },
 
-  linkUrl: 'chrome://settings/help',
+  linkUrl: 'rebel://settings/help',
   linkText: 'Click here to update',
 
   severe: function (platform_info) {
@@ -94,7 +94,7 @@ const IOS_DEFAULT_BROWSER_NOTIFICATION = {
   name: 'ios-default-browser-notification',
   title: 'You may now make Rebel Browser your default browser!',
 
-  linkUrl: 'chrome://settings',
+  linkUrl: 'rebel://settings',
   linkText: 'Click here to make the change',
 
   active: function (platform_info) {

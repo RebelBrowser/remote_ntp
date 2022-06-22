@@ -8,14 +8,14 @@ import Toggle from '../../Toggle/Toggle';
 export const STATIC_TILES = [
   {
     title: Strings.settings,
-    url: 'chrome://settings',
+    url: 'rebel://settings',
     favicon_url: null,
     muiIcon: 'settings',
     enabled: () => true,
   },
   {
     title: Strings.history,
-    url: 'chrome://history',
+    url: 'rebel://history',
     favicon_url: null,
     muiIcon: 'history',
     enabled: () => true,
