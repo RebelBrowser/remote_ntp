@@ -1,0 +1,17 @@
+[
+    {
+        "large_icon_url": "https://github.com/fluidicon.png",
+        "title": "Rebel Browser",
+        "url": "https://github.com/RebelBrowser/rebel"
+    },
+    {
+        "large_icon_url": "https://github.com/fluidicon.png",
+        "title": "Rebel NTP",
+        "url": "https://github.com/RebelBrowser/remote_ntp"
+    },
+    {
+        "large_icon_url": "https://github.com/fluidicon.png",
+        "title": "Rebel API",
+        "url": "https://github.com/RebelBrowser/browser_api"
+    }
+]
