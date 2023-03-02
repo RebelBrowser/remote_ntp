@@ -21,10 +21,10 @@ export const STATIC_TILES = [
     enabled: () => true,
   },
   {
-    title: Strings.speed_test,
+    title: Strings.speed_check,
     url: 'https://speedcheck.viasat.com/',
     favicon_url: null,
-    muiIcon: 'speedtest',
+    muiIcon: 'speedcheck',
     enabled: () => true,
   },
 ];

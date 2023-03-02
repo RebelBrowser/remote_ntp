@@ -9,7 +9,7 @@ import {
 } from '@material-ui/icons';
 import TileMediaVariables from './TileViewMedia';
 
-import { ReactComponent as SpeedTest } from './rocket.svg';
+import { ReactComponent as SpeedCheck } from './rocket.svg';
 import { LoadImage } from './../../Util';
 
 const TileContainer = styled.div`
@@ -165,7 +165,7 @@ const HistoryIcon = styled(History)`
   ${MuiIconStyle}
 `;
 
-const SpeedTestIcon = styled(SpeedTest)`
+const SpeedCheckIcon = styled(SpeedCheck)`
   ${MuiIconStyle};
   width: 2.5em;
   height: 2.5em;
@@ -219,8 +219,8 @@ export default class TileView extends React.Component {
         case 'history':
           icon = <HistoryIcon />;
           break;
-        case 'speedtest':
-          icon = <SpeedTestIcon />;
+        case 'speedcheck':
+          icon = <SpeedCheckIcon />;
           break;
         case 'add':
           icon = <AddIcon />;

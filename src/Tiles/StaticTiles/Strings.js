@@ -4,7 +4,7 @@ let strings = {
   en: {
     settings: 'Settings',
     history: 'History',
-    speed_test: 'Speed Test',
+    speed_check: 'Speed Check',
   },
 };
 
