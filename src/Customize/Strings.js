@@ -4,21 +4,6 @@ let strings = {
   en: {
     customize: 'Customize',
     customize_full: 'Customize this page',
-
-    cancel: 'Cancel',
-    submit: 'Save',
-
-    backgrounds: {
-      title: 'Background',
-      default: 'No background',
-      custom: 'Select from device',
-    },
-
-    colors: {
-      title: 'Colors and theme',
-      default: 'Default',
-      custom: 'Select color',
-    },
   },
 };
 

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { withTheme } from '@material-ui/core/styles';
 
-import CustomizeMenu from './CustomizeMenu.js';
 import Strings from './Strings.js';
 import { ThemedBubble } from './../Theme';
 
@@ -25,20 +24,8 @@ const CustomizeButtonWrapper = styled.div`
 // Displays a Customize button on the bottom right of the screen. When clicked,
 // opens a panel with options for configuring the page.
 export class Customize extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      customizeMenuActive: false,
-    };
-  }
-
-  closeCustomizeMenu() {
-    this.setState({ customizeMenuActive: false });
-  }
-
-  openCustomizeMenu(wide) {
-    this.setState({ customizeMenuActive: true });
+  showOrHideCustomizeMenu(wide) {
+    BrowserAPI.theme.showOrHideCustomizeMenu();
   }
 
   render() {
@@ -46,18 +33,12 @@ export class Customize extends React.Component {
       return null;
     }
 
-    const customizeMenu = this.state.customizeMenuActive ? (
-      <CustomizeMenu closeCallback={() => this.closeCustomizeMenu()} />
-    ) : null;
-
     // When a background image is shown, the customize button will be narrow.
     const wide = this.props.theme.browser.background.imageUrl.length === 0;
     const transparent = !wide;
 
     return (
       <CustomizeWrapper data-testid="Customize">
-        {customizeMenu}
-
         <CustomizeButtonWrapper>
           <ThemedBubble
             text={Strings.customize}
@@ -65,7 +46,7 @@ export class Customize extends React.Component {
             icon={customize}
             wide={wide}
             transparent={transparent}
-            onClick={() => this.openCustomizeMenu(wide)}
+            onClick={() => this.showOrHideCustomizeMenu(wide)}
           />
         </CustomizeButtonWrapper>
       </CustomizeWrapper>
