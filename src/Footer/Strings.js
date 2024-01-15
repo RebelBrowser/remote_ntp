@@ -2,11 +2,11 @@ import LocalizedStrings from 'react-localization';
 
 let strings = {
   en: {
-    copyright: 'Copyright {symbol} 2023 Viasat, Inc.',
+    copyright: 'Copyright {symbol} 2024 Viasat, Inc.',
   },
 
   'es-MX': {
-    copyright: 'Derechos de autor {symbol} 2023 Viasat, Inc.',
+    copyright: 'Derechos de autor {symbol} 2024 Viasat, Inc.',
   },
 };
 
