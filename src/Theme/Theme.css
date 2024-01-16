@@ -82,8 +82,6 @@ body {
     hue-rotate(202deg) brightness(92%) contrast(97%);
 
   --themed-pressed-color: var(--color-blue7);
-  --themed-contour-color: var(--color-teal);
-  --themed-contour-secondary-color: var(--color-grey2);
 
   --themed-shadow: 0px 0px 5px 1px rgba(32, 33, 36, 0.28);
 }
@@ -111,7 +109,6 @@ body {
     hue-rotate(182deg) brightness(103%) contrast(95%);
 
   --themed-pressed-color: var(--color-blue4);
-  --themed-contour-color: var(--color-teal);
 
   --themed-shadow: 0px 0px 5px 1px rgba(32, 33, 36, 0.28);
 }

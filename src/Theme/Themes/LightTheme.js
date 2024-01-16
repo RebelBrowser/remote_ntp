@@ -58,7 +58,6 @@ const theme = {
   browser: {
     darkModeEnabled: false,
     background: {
-      collectionId: '',
       imageUrl: '',
       imageAlignment: '',
       imageTiling: '',
@@ -66,9 +65,7 @@ const theme = {
       attributionLine2: '',
       attributionUrl: '',
       attributionImageUrl: '',
-      thumbnailUrl: '',
     },
-    colors: {},
   },
 
   typography: {

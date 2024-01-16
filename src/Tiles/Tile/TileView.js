@@ -181,7 +181,7 @@ const TileTitleWrapper = styled.div`
 
 const EditIcon = styled(MoreVert)`
   transform: rotate(0.25turn);
-  background-color: var(--themed-contour-color);
+  background-color: var(--color-teal);
   border-radius: 50%;
   border: none;
   cursor: pointer;
