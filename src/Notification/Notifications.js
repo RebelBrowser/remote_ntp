@@ -88,11 +88,11 @@ const OUT_OF_DATE_NOTIFICATION = {
   },
 };
 
-// Notification to inform iOS users that they may make Rebel Browser their
+// Notification to inform iOS users that they may make Helixis Browser their
 // default browser on iOS 14.
 const IOS_DEFAULT_BROWSER_NOTIFICATION = {
   name: 'ios-default-browser-notification',
-  title: 'You may now make Rebel Browser your default browser!',
+  title: 'You may now make Helixis Browser your default browser!',
 
   linkUrl: 'rebel://settings',
   linkText: 'Click here to make the change',

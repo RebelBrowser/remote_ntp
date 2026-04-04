@@ -65,7 +65,7 @@ class Venue extends React.Component {
     return (
       <TilesContainer data-testid="Venue">
         <Toggle
-          title="Rebel Pages"
+          title="Helixis Pages"
           isToggled={this.state.isToggled}
           onClickOverride={(e) => this.venueToggleHandler(e)}
         />

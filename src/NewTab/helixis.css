@@ -1,0 +1,474 @@
+/* ========================================================================
+   Helixis NTP — AI-native browser workspace
+   ======================================================================== */
+
+:root {
+  --hx-bg: #05030b;
+  --hx-bg-elevated: #0a0716;
+  --hx-bg-card: rgba(12, 9, 24, 0.65);
+  --hx-accent: #9b5cff;
+  --hx-accent-soft: rgba(155, 92, 255, 0.25);
+  --hx-accent-glow: rgba(155, 92, 255, 0.12);
+  --hx-text-primary: #f4f0ff;
+  --hx-text-secondary: #b8b3cc;
+  --hx-text-muted: #6e6a86;
+  --hx-border: rgba(255, 255, 255, 0.06);
+  --hx-border-hover: rgba(155, 92, 255, 0.4);
+  --hx-radius-sm: 10px;
+  --hx-radius-md: 14px;
+  --hx-radius-lg: 20px;
+  --hx-radius-full: 999px;
+  --hx-transition: 0.15s ease;
+}
+
+/* ── Reset ── */
+html, body, .helixis-ntp {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* ── Page shell ── */
+.helixis-ntp {
+  position: relative;
+  min-height: 100vh;
+  background: var(--hx-bg);
+  color: var(--hx-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'SF Pro Text', 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Background layers ── */
+.helixis-bg-glow {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(155, 92, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 25% 0%, rgba(99, 50, 200, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 75% 0%, rgba(180, 120, 255, 0.08) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.helixis-bg-grid {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── Top bar ── */
+.helixis-topbar {
+  position: relative;
+  z-index: 2;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.helixis-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.helixis-wordmark {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--hx-text-secondary);
+}
+
+.helixis-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--hx-border);
+}
+
+.helixis-chip {
+  padding: 3px 10px;
+  border-radius: var(--hx-radius-full);
+  border: 1px solid var(--hx-border);
+  background: rgba(155, 92, 255, 0.06);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hx-text-muted);
+}
+
+.helixis-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.helixis-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+.helixis-status-text {
+  font-size: 11px;
+  color: var(--hx-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ── Main content ── */
+.helixis-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 24px 40px;
+  gap: 0;
+}
+
+/* ── Greeting ── */
+.helixis-greeting {
+  text-align: center;
+  margin-top: clamp(32px, 6vh, 80px);
+  margin-bottom: 28px;
+}
+
+.helixis-greeting-text {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #d4c4ff 50%, var(--hx-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.helixis-date {
+  margin: 0;
+  font-size: 14px;
+  color: var(--hx-text-muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ── Omnibox ── */
+.helixis-omnibox-section {
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.helixis-omnibox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--hx-bg-card);
+  border: 1px solid var(--hx-border);
+  border-radius: var(--hx-radius-lg);
+  padding: 0 16px;
+  transition: border-color var(--hx-transition), box-shadow var(--hx-transition);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.helixis-omnibox:focus-within {
+  border-color: var(--hx-border-hover);
+  box-shadow:
+    0 0 0 1px var(--hx-accent-glow),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(155, 92, 255, 0.06);
+}
+
+.helixis-omnibox-icon {
+  flex-shrink: 0;
+  color: var(--hx-text-muted);
+  transition: color var(--hx-transition);
+}
+
+.helixis-omnibox:focus-within .helixis-omnibox-icon {
+  color: var(--hx-accent);
+}
+
+.helixis-omnibox-input {
+  flex: 1;
+  border: none;
+  background: none;
+  color: var(--hx-text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  padding: 14px 12px;
+  outline: none;
+}
+
+.helixis-omnibox-input::placeholder {
+  color: var(--hx-text-muted);
+}
+
+.helixis-omnibox-hint {
+  flex-shrink: 0;
+}
+
+.helixis-omnibox-hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  border: 1px solid var(--hx-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--hx-text-muted);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ── Workflow section ── */
+.helixis-workflows {
+  width: 100%;
+  max-width: 800px;
+}
+
+.helixis-workflows-header {
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.helixis-workflows-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--hx-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.helixis-workflows-subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--hx-text-muted);
+}
+
+/* ── Workflow grid ── */
+.helixis-workflows-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* ── Individual workflow card ── */
+.helixis-wf-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: var(--hx-radius-md);
+  border: 1px solid var(--hx-border);
+  background: var(--hx-bg-card);
+  color: var(--hx-text-primary);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+  transition:
+    border-color var(--hx-transition),
+    background var(--hx-transition),
+    box-shadow var(--hx-transition),
+    transform 0.12s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.helixis-wf-card:hover {
+  border-color: var(--hx-border-hover);
+  background: rgba(155, 92, 255, 0.04);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px var(--hx-accent-glow);
+  transform: translateY(-1px);
+}
+
+.helixis-wf-card:active {
+  transform: translateY(0);
+}
+
+/* Icon circle */
+.helixis-wf-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--hx-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--wf-accent, var(--hx-accent));
+  transition: background var(--hx-transition), border-color var(--hx-transition);
+}
+
+.helixis-wf-card:hover .helixis-wf-icon {
+  background: rgba(155, 92, 255, 0.08);
+  border-color: rgba(155, 92, 255, 0.15);
+}
+
+/* Card body */
+.helixis-wf-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.helixis-wf-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--hx-text-primary);
+  line-height: 1.3;
+}
+
+.helixis-wf-desc {
+  font-size: 11px;
+  color: var(--hx-text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Arrow indicator */
+.helixis-wf-arrow {
+  flex-shrink: 0;
+  color: var(--hx-text-muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--hx-transition), transform var(--hx-transition);
+  margin-top: 2px;
+}
+
+.helixis-wf-card:hover .helixis-wf-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Focus strip ── */
+.helixis-focus-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 10px 20px;
+  border-radius: var(--hx-radius-full);
+  border: 1px solid var(--hx-border);
+  background: rgba(8, 6, 18, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.helixis-focus-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--hx-text-muted);
+}
+
+.helixis-focus-item svg {
+  opacity: 0.6;
+}
+
+.helixis-focus-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--hx-border);
+}
+
+/* ── Footer ── */
+.helixis-footer {
+  position: relative;
+  z-index: 1;
+  padding: 14px 32px 18px;
+  font-size: 11px;
+  color: var(--hx-text-muted);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0.6;
+}
+
+.helixis-footer-sep {
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .helixis-workflows-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .helixis-topbar {
+    padding: 14px 16px;
+  }
+
+  .helixis-main {
+    padding: 16px 16px 32px;
+  }
+
+  .helixis-greeting {
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+  .helixis-omnibox-section {
+    margin-bottom: 28px;
+  }
+
+  .helixis-workflows-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .helixis-wf-card {
+    padding: 12px;
+  }
+
+  .helixis-focus-strip {
+    flex-direction: column;
+    gap: 8px;
+    border-radius: var(--hx-radius-md);
+    padding: 12px 16px;
+  }
+
+  .helixis-focus-sep {
+    width: 32px;
+    height: 1px;
+  }
+}
